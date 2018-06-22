@@ -1,0 +1,196 @@
+﻿.sudoku-container{
+    width:100%;
+    text-align:center;
+}
+
+.preloader-container {
+    display: inline-block;
+}
+
+.sudoku-table {
+    margin: 0 auto;
+}
+
+.sudoku-table .sudoku-cell:nth-child(3n+3) {
+    border-right: 7px solid white;
+}
+
+.sudoku-table .sudoku-row:nth-child(3n+3) {
+    border-bottom: 7px solid white;
+}
+
+.sudoku-cell {
+    border: 4px solid white;
+    background: #19BCFF;
+    width: 4vw;
+    height: 4vw;
+    color: #fff;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.sudoku-selected-cell {
+    background: green; 
+}
+
+.sudoku-error-cell {
+    color: red;
+}
+
+.sudoku-fixed-cell {
+    /*font-weight:bold;*/
+    color:black;
+}
+
+
+.sudoku-toggle-container {
+    width:inherit;
+    height:inherit;
+}
+
+.sudoku-num-selector {
+    background: #19BCFF;
+    width:100px;
+    height:100px;
+}
+
+.sudoku-num-selector td {
+    border: 4px solid white; 
+    background: #19BCFF; 
+    width: 1.5vw;
+    height: 1.5vw;
+    text-align:center;
+}
+
+.sudoku-invisible-cell {
+    background:white !important;
+}
+
+#winImage {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 20;
+}
+
+.sudoku-newgame-btn {
+    background-color: #19BCFF;
+    color:black;
+    
+}
+.sudoku-hint-btn {
+    background-color: #19BCFF;
+    color: black;
+    right:0;
+}
+
+.management-objects {
+    width:100%;
+}
+
+.management-objects > div {
+    display: table;
+    margin: 0 auto;
+}
+
+.radio-container {
+    text-align: center;
+    float: left;
+    margin: 2px;
+}
+
+.btn-managment {
+    margin: 3px;
+    transform: translate(0, 75%);
+    float: left;
+    min-width:100px;
+}
+
+@media screen and (max-width: 400px) {
+    .radio-container, .btn-managment {
+        transform: unset;
+        width: auto;
+        float: none;
+        clear: both;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sudoku-table {
+        width: 100%;
+    }
+
+    .sudoku-table .sudoku-cell {
+        height: 12vw;
+        width: 15vw;
+        font-size: 20px;
+    }
+}
+
+.radio {
+    display: block;
+    width: auto;
+    text-align: left;
+    max-width: 100px;
+}
+
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #999;
+    font-weight: bold;
+}
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #19BCFF;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

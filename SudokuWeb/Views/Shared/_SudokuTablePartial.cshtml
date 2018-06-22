@@ -1,0 +1,31 @@
+﻿@model SudokuTableModel
+
+@{
+    int RowCount = Model.Cells.GetLength(0);
+    int ColCount = Model.Cells.GetLength(1);
+}
+
+<table class="sudoku-table">
+    @for (int i = 0; i < RowCount; i++)
+    {
+        <tr class="sudoku-row">
+            @for (int j = 0; j < ColCount; j++)
+            {
+                if (@Model.Cells[i, j].IsFixed)
+                {
+                    <td class="sudoku-cell sudoku-fixed-cell" id="sudoku-cell-@i-@j">@Model.Cells[i, j].Value</td>
+                }
+                else
+                {
+                    <td class="sudoku-cell sudoku-editable-cell @(@Model.Cells[i, j].IsError ? "sudoku-error-cell" : "")" id="sudoku-cell-@i-@j" data-toggle="popover" tabindex="0">
+                        @if (@Model.Cells[i, j].UserValue != 0)
+                        {
+                            @Model.Cells[i, j].UserValue
+                        }
+                    </td>
+                }
+
+            }
+        </tr>
+    }
+</table>

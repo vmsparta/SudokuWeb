@@ -1,0 +1,37 @@
+﻿<link rel="stylesheet" href="~/css/Sudoku.css" />
+@section scripts
+    {
+    <script src="~/js/sudoku.js"></script>
+    <script src="~/js/jquery.cookie.js"></script>
+}
+
+@{
+    ViewBag.Title = "Главная страница";
+}
+
+<div class="sudoku-container">
+    <div class="preloader-container">
+        <img src="~/images/Spinner-1s-200px.gif" />
+    </div>
+</div>
+<div class="management-objects">
+    <div>
+        <div class="radio-container">
+            <label class="radio">
+                <input class="difficulty" id="easy" value="45" type="radio" name="optradio">
+                <label for="easy">Простой</label>
+            </label>
+            <label class="radio">
+                <input class="difficulty" id="medium" value="35" type="radio" name="optradio" checked>
+                <label for="medium">Средний</label>
+            </label>
+            <label class="radio">
+                <input class="difficulty" id="hard" value="30" type="radio" name="optradio">
+                <label for="hard">Сложный</label>
+            </label>
+        </div>
+        <button type="button" class="btn btn-managment sudoku-newgame-btn" id="btnNewGame">Новая игра</button>
+        <button type="button" class="btn btn-managment sudoku-hint-btn clearfix" id="btnHint">Подсказка</button>
+    </div>
+</div>
+<img id="winImage" src="images/win.svg">
